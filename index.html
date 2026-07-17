@@ -187,8 +187,23 @@ a {
   position: relative;
 }
 
+.desk-scene::before {
+  animation: buddySparkle 2.8s ease-in-out infinite;
+  background: #f3ba2f;
+  border-radius: 50%;
+  box-shadow: 18px -24px 0 -2px #7bc47f, 40px 8px 0 -3px #f3ba2f;
+  content: "";
+  height: 12px;
+  left: 54%;
+  opacity: 0.9;
+  position: absolute;
+  top: 16px;
+  width: 12px;
+  z-index: 3;
+}
+
 .desk-scene::after {
-  animation: buddyShadow 4.6s ease-in-out infinite;
+  animation: buddyShadow 2.8s ease-in-out infinite;
   background: #101827;
   border-radius: 999px;
   bottom: 8px;
@@ -201,7 +216,7 @@ a {
 }
 
 .desk-scene img {
-  animation: buddyFloat 4.6s ease-in-out infinite;
+  animation: buddyDance 2.8s ease-in-out infinite;
   filter: drop-shadow(0 24px 28px rgba(23, 32, 42, 0.16));
   grid-column: 2;
   max-width: 265px;
@@ -213,12 +228,12 @@ a {
 
 .desk-scene:hover img,
 .desk-scene:focus-within img {
-  animation-duration: 2.8s;
+  animation-duration: 1.6s;
 }
 
 .desk-scene:hover::after,
 .desk-scene:focus-within::after {
-  animation-duration: 2.8s;
+  animation-duration: 1.6s;
 }
 
 .desk-plant {
@@ -258,7 +273,7 @@ a {
 }
 
 .paper-stack {
-  animation: receiptPeek 6s ease-in-out infinite;
+  animation: receiptPeek 3.6s ease-in-out infinite;
   background: #ffffff;
   border: 1px solid #e8e0d4;
   box-shadow: 0 14px 34px rgba(23, 32, 42, 0.1);
@@ -273,22 +288,26 @@ a {
   z-index: 1;
 }
 
-@keyframes buddyFloat {
+@keyframes buddyDance {
   0%,
   100% {
-    transform: translateY(0) rotate(-1deg);
+    transform: translateY(0) rotate(-2deg) scale(1);
   }
 
-  28% {
-    transform: translateY(-12px) rotate(2deg);
+  20% {
+    transform: translateY(-18px) rotate(4deg) scale(1.025);
   }
 
-  54% {
-    transform: translateY(-6px) rotate(-2deg);
+  44% {
+    transform: translateY(-7px) rotate(-4deg) scale(1);
   }
 
-  76% {
-    transform: translateY(-15px) rotate(1.5deg);
+  68% {
+    transform: translateY(-20px) rotate(3deg) scale(1.03);
+  }
+
+  84% {
+    transform: translateY(-4px) rotate(-1deg) scale(1);
   }
 }
 
@@ -300,8 +319,26 @@ a {
   }
 
   50% {
-    opacity: 0.1;
-    transform: rotate(-8deg) scaleX(0.82);
+    opacity: 0.08;
+    transform: rotate(-8deg) scaleX(0.72);
+  }
+}
+
+@keyframes buddySparkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(6px) scale(0.75) rotate(0deg);
+  }
+
+  35% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.2) rotate(18deg);
+  }
+
+  70% {
+    opacity: 0.55;
+    transform: translateY(0) scale(0.9) rotate(-12deg);
   }
 }
 
@@ -753,6 +790,7 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .desk-scene::before,
   .desk-scene::after,
   .desk-scene img,
   .paper-stack {
